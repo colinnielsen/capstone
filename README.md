@@ -15,7 +15,7 @@ Archetects are some of the most important artists of our city, their imagination
 * As the artist, you will be able to log on and upload a new model and it will appear in the portfolio section.
 
 
-#### The Technology
+### The Technology
 * vue - ? / react - ? 
 * AWS s3
 * threeJS
