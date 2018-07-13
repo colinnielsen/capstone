@@ -16,7 +16,7 @@ Archetects are some of the most important artists of our city, their imagination
 
 
 ### The Technology
-* vue - ? / react - ? 
+* vue 
 * AWS s3
 * threeJS
 * Iris
