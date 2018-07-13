@@ -24,6 +24,7 @@ Using Iris and ThreeJS the user can navigate an interactive portfolio site with 
 ### The Technology
 * vue 
 * AWS s3
+* expressJS
 * threeJS
 * Iris
 * JS, Html, CSS
