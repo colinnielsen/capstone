@@ -4,10 +4,16 @@
 ## Project Description
 Archetects are some of the most important artists of our city, their imagination shapes our skylines and inspires the way we feel when we choose to call a place home. Carpenders and designers explore how art mixes with functionality to create innovative pieces for the home, office, or public spaces. Structural Engineers use patterns from nature and high mathematics to create rigid, sturdy, and elegant designs that keep strength and efficiency in mind. One thing these three different carrers all have in common is their use of 3d modeling in the creation of their designs. Unfortunately, using 2d pictures to show a 3d artist's work isn't the best way to display this type of work. This project is going to be a showcase of an artists imagination where the user gets to manipulate a 3d model in actual 3d space, and zoom in and out to get a more comprehensive understanding of an artists work.
 
+## The Problem
+Creatives who make 3d digital designs don't have a way to visualize and display their work in an engaging way. Pictures of 3d models don't suffice for creators who put hours of effort into making intricate builds.
+
+## Solution
+Using Iris and ThreeJS the user can navigate an interactive portfolio site with 3d models that move in 3d space.
+
 ### Sketches
 ![sketch](https://i.imgur.com/IcTZZnZ.jpg)
 
-### User Stories
+### User Experience
 * On opening the app, the user will see a unique navigation system using lines in a 3d space. The user will be able to see how their mouse affects the screen. 
 * The user will be able to visually understand how to navigate the site based on the the tags on the navigation like, "about me", "portfolio","current projects", "contact".
 * When the user clicks on one of these "nav points" the camera will zoom to the new information and display it.
