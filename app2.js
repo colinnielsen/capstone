@@ -17,7 +17,7 @@ function init() {
     container = document.createElement('div');
     document.body.appendChild(container);
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.z = -100
+    camera.position.z = -110
     scene = new THREE.Scene();
     renderer = new THREE.CanvasRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -31,8 +31,8 @@ function init() {
 
     var geometry = new THREE.Geometry();
     geometry.vertices.push(
-        new THREE.Vector3(-10, 80, -80),
-        new THREE.Vector3(-10, -80, 0),
+        new THREE.Vector3(0, 60, 0),
+        new THREE.Vector3(20, -60, 0),
     );
 
     geometry.faces.push(new THREE.Face3(0, 1, 2));
@@ -53,8 +53,8 @@ function onWindowResize() {
 }
 
 function onMouseMove(event) {
-    mouseX = (event.clientX - windowHalfX) / 8;
-    mouseY = (event.clientY - windowHalfY) / 8;
+    mouseX = (event.clientX - windowHalfX) / 32;
+    mouseY = (event.clientY - windowHalfY) / 32;
 }
 
 
@@ -69,6 +69,5 @@ function render() {
     camera.position.y += (- mouseY - camera.position.y) * .05;
     camera.lookAt(scene.position);
     renderer.render(scene, camera);
-
 
 }

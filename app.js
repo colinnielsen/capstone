@@ -77,12 +77,6 @@ var container;
 var camera, scene, renderer;
 var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
-//     windowHalfX = window.innerWidth / 2,
-//     windowHalfY = window.innerHeight / 2,
-//     SEPARATION = 200,
-//     AMOUNTX = 10,
-//     AMOUNTY = 10,
-//     camera, scene, renderer;
 init();
 animate();
 function init() {
@@ -110,18 +104,20 @@ function init() {
             context.fill();
         }
     });
+
     var points = [];
     for (var i = 0; i < 30; i++) {
         particle = new THREE.Sprite(material);
         particle.position.x = Math.random() * 2 - 1;
         particle.position.y = Math.random() * 2 - 1;
         particle.position.z = Math.random() * 2 - 1;
-        particle.position.normalize();
+        // particle.position.normalize();
         particle.position.multiplyScalar(Math.random() * 200 + 150);
         particle.scale.x = particle.scale.y = 10;
         scene.add(particle);
         points.push(particle.position);
     }
+
     // lines
     var geometry = new THREE.BufferGeometry().setFromPoints(points);
     var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0x000000, opacity: .8 }));
@@ -149,17 +145,18 @@ function animate() {
     requestAnimationFrame(animate);
     render();
 }
+
 function render() {
     raycaster.setFromCamera(mouse, camera);
-    camera.position.x += (mouseX - camera.position.x) * .05;
-    camera.position.y += (- mouseY - camera.position.y) * .05;
+    camera.position.x += (mouseX - camera.position.x) * 1;
+    camera.position.y += (- mouseY - camera.position.y) * 1;
     camera.lookAt(scene.position);
     renderer.render(scene, camera);
     // console.log(scene)
-    // var intersects = raycaster.intersectObjects(scene.children);
-    // for (var i = 0; i < intersects.length; i++) {
-    //     intersects[i].object.material.color.set(0x9800ff);
-    // }
+    var intersects = raycaster.intersectObjects(line);
+    for (var i = 0; i < intersects.length; i++) {
+        intersects[i].object.material.color.set(0x9800ff);
+    }
 
     renderer.render(scene, camera);
 
