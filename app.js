@@ -1,4 +1,4 @@
-// //RENDERER
+// // RENDERER
 // var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('myCanvas'), antialias: true });
 // // renderer.setClearColor(0xffffff);
 // // renderer.setPixelRatio(window.devicePixelRatio);
@@ -67,9 +67,9 @@
 //     // requestAnimationFrame(render);
 // }
 
-var raycaster = new THREE.Raycaster();
-var mouse = new THREE.Vector2();
-raycaster.linePrecision = 1;
+// var raycaster = new THREE.Raycaster();
+// var mouse = new THREE.Vector2();
+// raycaster.linePrecision = 1;
 
 
 var mouseX = 0, mouseY = 0
@@ -84,14 +84,16 @@ function init() {
         particles, particle;
     container = document.createElement('div');
     document.body.appendChild(container);
-    camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.z = -600;
+    camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 2000);
+    camera.position.z = -200;
     scene = new THREE.Scene();
     renderer = new THREE.CanvasRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0xffffff);
     container.appendChild(renderer.domElement);
+
+
     // particles
     var PI2 = Math.PI * 2;
     var material = new THREE.SpriteCanvasMaterial({
@@ -105,19 +107,20 @@ function init() {
         }
     });
 
+
     var points = [];
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 20; i++) {
         particle = new THREE.Sprite(material);
         particle.position.x = Math.random() * 2 - 1;
         particle.position.y = Math.random() * 2 - 1;
         particle.position.z = Math.random() * 2 - 1;
-        // particle.position.normalize();
-        particle.position.multiplyScalar(Math.random() * 200 + 150);
+        particle.position.normalize();
+        particle.position.multiplyScalar(Math.random() * 10 + 250);
         particle.scale.x = particle.scale.y = 10;
         scene.add(particle);
         points.push(particle.position);
     }
-
+    console.log(points)
     // lines
     var geometry = new THREE.BufferGeometry().setFromPoints(points);
     var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0x000000, opacity: .8 }));
@@ -136,8 +139,8 @@ function onWindowResize() {
 }
 
 function onMouseMove(event) {
-    mouseX = (event.clientX - windowHalfX) / 2;
-    mouseY = (event.clientY - windowHalfY) / 2;
+    mouseX = (event.clientX - windowHalfX) / 32;
+    mouseY = (event.clientY - windowHalfY) / 32;
 }
 
 
@@ -147,16 +150,16 @@ function animate() {
 }
 
 function render() {
-    raycaster.setFromCamera(mouse, camera);
+    // raycaster.setFromCamera(mouse, camera);
     camera.position.x += (mouseX - camera.position.x) * 1;
     camera.position.y += (- mouseY - camera.position.y) * 1;
     camera.lookAt(scene.position);
     renderer.render(scene, camera);
     // console.log(scene)
-    var intersects = raycaster.intersectObjects(line);
-    for (var i = 0; i < intersects.length; i++) {
-        intersects[i].object.material.color.set(0x9800ff);
-    }
+    // var intersects = raycaster.intersectObjects(line);
+    // for (var i = 0; i < intersects.length; i++) {
+    //     intersects[i].object.material.color.set(0x9800ff);
+    // }
 
     renderer.render(scene, camera);
 

@@ -1,15 +1,30 @@
 {
   "name": "threejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Project Description Archetects are some of the most important artists of our city, their imagination shapes our skylines and inspires the way we feel when we choose to call a place home. Carpenders and designers explore how art mixes with functionality to create innovative pieces for the home, office, or public spaces. Structural Engineers use patterns from nature and high mathematics to create rigid, sturdy, and elegant designs that keep strength and efficiency in mind. One thing these three different carrers all have in common is their use of 3d modeling in the creation of their designs. Unfortunately, using 2d pictures to show a 3d artist's work isn't the best way to display this type of work. This project is going to be a showcase of an artists imagination where the user gets to manipulate a 3d model in actual 3d space, and zoom in and out to get a more comprehensive understanding of an artists work.",
   "main": "app.js",
   "dependencies": {
-    "three": "^0.93.0"
+    "babel": "^6.23.0",
+    "three": "^0.93.0",
+    "three-text2d": "^0.4.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colinnielsen/capstone.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/colinnielsen/capstone/issues"
+  },
+  "homepage": "https://github.com/colinnielsen/capstone#readme"
 }
