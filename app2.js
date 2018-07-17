@@ -15,7 +15,6 @@ var windowHalfY = window.innerHeight / 2;
 init();
 animate();
 function init() {
-    import SpriteText2D from 'three-text2d'
     var container, separation = 100, amountX = 50, amountY = 50,
         particles, particle, controls;
     container = document.createElement('div');
@@ -197,3 +196,4 @@ function render() {
     renderer.render(scene, camera);
 
 }
+import SpriteText2D from 'three-text2d'
