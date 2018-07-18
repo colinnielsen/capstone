@@ -85,13 +85,21 @@ function init() {
     container = document.createElement('div');
     document.body.appendChild(container);
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 2000);
-    camera.position.z = -200;
+    camera.position.z = -700;
     scene = new THREE.Scene();
     renderer = new THREE.CanvasRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0xffffff);
     container.appendChild(renderer.domElement);
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    //controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
+    controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+    controls.dampingFactor = 0.25;
+    controls.screenSpacePanning = false;
+    controls.minDistance = 25;
+    controls.maxDistance = 500
+    controls.maxPolarAngle = Math.PI / 2;
 
 
     // particles
@@ -109,7 +117,7 @@ function init() {
 
 
     var points = [];
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < 40; i++) {
         particle = new THREE.Sprite(material);
         particle.position.x = Math.random() * 2 - 1;
         particle.position.y = Math.random() * 2 - 1;
@@ -123,7 +131,7 @@ function init() {
     console.log(points)
     // lines
     var geometry = new THREE.BufferGeometry().setFromPoints(points);
-    var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0x000000, opacity: .8 }));
+    var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0x000000, opacity: .4 }));
     scene.add(line);
     document.addEventListener('mousemove', onMouseMove, false);
 
@@ -151,8 +159,8 @@ function animate() {
 
 function render() {
     // raycaster.setFromCamera(mouse, camera);
-    camera.position.x += (mouseX - camera.position.x) * 1;
-    camera.position.y += (- mouseY - camera.position.y) * 1;
+    // camera.position.x += (mouseX - camera.position.x) * 1;
+    // camera.position.y += (- mouseY - camera.position.y) * 1;
     camera.lookAt(scene.position);
     renderer.render(scene, camera);
     // console.log(scene)
